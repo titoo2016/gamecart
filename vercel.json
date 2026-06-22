@@ -1,0 +1,19 @@
+{
+  "buildCommand": "cd api-server && npm run build && cd ../codenames-game && npm run build",
+  "outputDirectory": "codenames-game/dist/public",
+  "functions": {
+    "api/**/*.ts": {
+      "runtime": "nodejs20.x"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index.mjs"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
